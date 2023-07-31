@@ -58,7 +58,7 @@ const Header = () => {
           <Button
             variant="text"
             className="flex-none"
-            sx={{ display: { xs: "block", sm: "none" }, color: "white" }}
+            sx={{ display: { xs: "block", sm: "none" }, color: "black" }}
           >
             Portfolio
           </Button>
@@ -67,31 +67,43 @@ const Header = () => {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ display: { sm: "none" } }}
+            sx={{ display: { sm: "none" }, color: "black" }}
           >
             <MenuIcon />
           </IconButton>
           <Button
             variant="text"
+            // color="#000"
             className="flex-none"
-            sx={{ display: { xs: "none", sm: "block" } }}
+            sx={{ display: { xs: "none", sm: "block" }, color: "black" }}
           >
             Portfolio
           </Button>
           <ButtonGroup
             variant="text"
             aria-label="text button group"
-            sx={{ display: { xs: "none", sm: "block" } }}
+            sx={{
+              display: { xs: "none", sm: "block" },
+              "& .MuiButtonGroup-grouped:not(:last-of-type)": {
+                borderColor: "black",
+              },
+            }}
             // className="flex-auto"
           >
             {navItems.map((nav, index) => (
-              <Button key={nav}>{nav}</Button>
+              <Button key={nav} sx={{ color: "black" }}>
+                {nav}
+              </Button>
             ))}
           </ButtonGroup>
           <Button
             variant="contained"
             className="flex-none"
-            sx={{ display: { xs: "none", sm: "block" } }}
+            sx={{
+              display: { xs: "none", sm: "block" },
+              color: "white",
+              backgroundColor: "black",
+            }}
           >
             Download CV
           </Button>
@@ -138,7 +150,14 @@ const Header = () => {
             </div> */}
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
-        <AppBar component="nav">
+        <AppBar
+          component="nav"
+          //   enableColorOnDark
+          position="sticky"
+          //   color="transparent"
+          //   className="bg-[#f6f5f3]"
+          sx={{ backgroundColor: "#f6f5f3" }}
+        >
           {/* <Toolbar> */}
           <Navigation />
           {/* </Toolbar> */}
@@ -158,6 +177,7 @@ const Header = () => {
               "& .MuiDrawer-paper": {
                 boxSizing: "border-box",
                 width: drawerWidth,
+                backgroundColor: "#e7e7e7",
               },
             }}
           >
