@@ -1,0 +1,11 @@
+.card {
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .card {
+    &--blur {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    }
+  }
+}

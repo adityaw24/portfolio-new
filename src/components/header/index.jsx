@@ -17,10 +17,11 @@ import {
   ListItemText,
   Divider,
   List,
+  Link,
 } from "@mui/material";
 
 const Header = () => {
-  const navItems = ["Home", "About", "Projects"];
+  const navItems = ["Home", "Tech Stack", "Projects"];
   const drawerWidth = 240;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -99,6 +100,10 @@ const Header = () => {
           <Button
             variant="contained"
             className="flex-none"
+            // component="a"
+            href="/CV - Purwa Aditya Wisnu Wardhana.pdf"
+            target="_blank"
+            download="CV - Purwa Aditya Wisnu Wardhana.pdf"
             sx={{
               display: { xs: "none", sm: "block" },
               color: "white",
@@ -128,15 +133,32 @@ const Header = () => {
         <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
           <List>
             {navItems.map((item, index) => (
-              <>
+              <div key={item}>
                 {index !== 0 && <Divider />}
-                <ListItem key={item} disablePadding>
+                <ListItem disablePadding>
                   <ListItemButton sx={{ textAlign: "center" }}>
                     <ListItemText primary={item} />
                   </ListItemButton>
                 </ListItem>
-              </>
+              </div>
             ))}
+            <Divider />
+            <Button
+              variant="contained"
+              // className="flex-none"
+              // component="a"
+              href="/CV - Purwa Aditya Wisnu Wardhana.pdf"
+              target="_blank"
+              download="CV - Purwa Aditya Wisnu Wardhana.pdf"
+              sx={{
+                //   display: { xs: "none", sm: "block" },
+                color: "white",
+                backgroundColor: "black",
+                margin: "1rem 0",
+              }}
+            >
+              Download CV
+            </Button>
           </List>
         </Box>
       </>
@@ -152,11 +174,12 @@ const Header = () => {
         <CssBaseline />
         <AppBar
           component="nav"
+          elevation={0}
           //   enableColorOnDark
           position="sticky"
           //   color="transparent"
           //   className="bg-[#f6f5f3]"
-          sx={{ backgroundColor: "#f6f5f3" }}
+          sx={{ backgroundColor: "#f5f5f5" }}
         >
           {/* <Toolbar> */}
           <Navigation />
@@ -185,6 +208,7 @@ const Header = () => {
           </Drawer>
         </Box>
       </Box>
+      {/* <Toolbar /> */}
     </>
   );
 };
